@@ -32,7 +32,7 @@ public class OdontoloEnMemoria implements IDao<Odontologo> {
     }
 
     @Override
-    public List<Paciente> buscarTodos() {
-        return pacientes;
+    public List<Odontologo> buscarTodos() {
+        return odontologos;
     }
 }
