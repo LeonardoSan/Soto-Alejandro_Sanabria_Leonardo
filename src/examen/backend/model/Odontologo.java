@@ -1,3 +1,5 @@
+package examen.backend.model;
+
 public class Odontologo {
 
     private int numMatricula;
@@ -52,7 +54,7 @@ public class Odontologo {
 
     @Override
     public String toString() {
-        return "Odontologo{" +
+        return "examen.backend.model.Odontologo{" +
                 "numMatricula=" + numMatricula +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
