@@ -1,5 +1,4 @@
 package examen.backend.dao.impl;
-import examen.backend.dao.IDao;
 import examen.backend.model.Odontologo;
 import org.apache.log4j.Logger;
 
@@ -35,4 +34,5 @@ public class OdontoloEnMemoria implements IDao<Odontologo> {
     public List<Odontologo> buscarTodos() {
         return odontologos;
     }
+}
 }

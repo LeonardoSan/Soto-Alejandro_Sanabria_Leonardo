@@ -6,6 +6,7 @@ import examen.backend.model.Odontologo;
 import java.util.List;
 
 public class OdontologoService {
+
     private IDao<Odontologo> odontologoIDao;
 
     public OdontologoService(IDao<Odontologo> odontologoIDao) {
@@ -24,3 +25,7 @@ public class OdontologoService {
         return odontologoIDao.buscarTodos();
     }
 }
+
+
+
+
