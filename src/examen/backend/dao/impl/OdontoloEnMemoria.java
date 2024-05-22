@@ -1,17 +1,38 @@
 package examen.backend.dao.impl;
-import java.util.ArrayList;
+import examen.backend.dao.IDao;
+import examen.backend.model.Odontologo;
+import org.apache.log4j.Logger;
+
 import java.util.List;
+import java.util.ArrayList;
 
-public class OdontoloEnMemoria {
-    private List<Odontologo> odontologos = new ArrayList<>();
-
+public class OdontoloEnMemoria implements IDao<Odontologo> {
+    private Logger LOGGER = Logger.getLogger(OdontoloEnMemoria.class);
+    List<Odontologo> odontologos = new ArrayList<>();
     @Override
-    public void guardar(Odontologo odontologo) {
+    public Odontologo registrar(Odontologo odontologo) {
+        Integer id = odontologos.size()+1;
+        odontologo.setId(id);
+
         odontologos.add(odontologo);
+        LOGGER.info("odontologo guardado: "+ odontologo);
+        return odontologo;
     }
 
     @Override
-    public List<Odontologo> listarTodos() {
-        return new ArrayList<>(odontologos);
+    public Odontologo buscarPorId(Integer id) {
+        for(Odontologo odontologo: odontologos){
+            if(odontologo.getId().equals(id)){
+                LOGGER.info("Odontologo encontrado: "+ odontologo);
+                return odontologo;
+            }
+        }
+        LOGGER.info("Odontologo no encontrado");
+        return null;
+    }
+
+    @Override
+    public List<Paciente> buscarTodos() {
+        return pacientes;
     }
 }
