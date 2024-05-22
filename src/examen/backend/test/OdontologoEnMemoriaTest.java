@@ -1,5 +1,4 @@
 package examen.backend.test;
-import examen.backend.dao.impl.OdontologoDaoH2;
 import examen.backend.dao.impl.OdontoloEnMemoria;
 import examen.backend.model.Odontologo;
 import examen.backend.service.OdontologoService;
@@ -9,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 public class OdontologoEnMemoriaTest {
-    private static OdontologoServiceService odontologoService = new OdontologoService(new OdontoloEnMemoria());
+    private static OdontologoService odontologoService = new OdontologoService(new OdontoloEnMemoria());
 
     @Test
     @DisplayName("Testear que un odontologo fue guardado")
     void testOdontologoGuardado(){
-        Odontologo odontologo = new Odontologo(1,"Menganito","Mengano");
+        Odontologo odontologo = new Odontologo("Mengano","Menganito",123456);
         Odontologo odontologoDesdeLaMemoria = odontologoService.registrarOdontologo(odontologo);
 
         assertNotNull(odontologoDesdeLaMemoria);
@@ -23,19 +22,19 @@ public class OdontologoEnMemoriaTest {
     @Test
     @DisplayName("Testear busqueda odontologo por id")
     void testOdontologoPorId(){
-        Odontologo odontologo = new Odontologo(2,"Menganito","Mengano");
+        Odontologo odontologo = new Odontologo("Mengano","Menganito",123456);
         odontologoService.registrarOdontologo(odontologo);
 
         Integer id = 1;
         Odontologo odontologoEncontrado = odontologoService.buscarPorId(id);
 
-        assertEquals(id, odontologoEncontrado.getId());
+        assertEquals(id, odontologoEncontrado.getID());
     }
 
     @Test
     @DisplayName("Testear busqueda todos los odontologos")
     void testBusquedaTodos() {
-        Odontologo odontologo = new Odontologo(3,"Menganito","Mengano");
+        Odontologo odontologo = new Odontologo("Mengano","Menganito",123456);
         odontologoService.registrarOdontologo(odontologo);
 
         List<Odontologo> odontologos = odontologoService.buscarTodos();

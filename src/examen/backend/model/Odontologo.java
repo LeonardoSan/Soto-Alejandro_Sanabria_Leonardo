@@ -1,31 +1,30 @@
 package examen.backend.model;
 
 public class Odontologo {
-
-    private int numMatricula;
+    private Integer ID;
     private String nombre;
     private String apellido;
-    private Integer ID;
+    private int numMatricula;
 
-    public Odontologo(int numMatricula, String nombre, String apellido) {
-        this.numMatricula = numMatricula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-    }
-
-    public Odontologo(int numMatricula, String nombre, String apellido, Integer ID) {
-        this.numMatricula = numMatricula;
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Odontologo(Integer ID, String nombre, String apellido, int numMatricula) {
         this.ID = ID;
-    }
-
-    public int getNumMatricula() {
-        return numMatricula;
-    }
-
-    public void setNumMatricula(int numMatricula) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.numMatricula = numMatricula;
+    }
+
+    public Odontologo(String nombre, String apellido, int numMatricula) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.numMatricula = numMatricula;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
     public String getNombre() {
@@ -44,21 +43,21 @@ public class Odontologo {
         this.apellido = apellido;
     }
 
-    public Integer getID() {
-        return ID;
+    public int getNumMatricula() {
+        return numMatricula;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setNumMatricula(int numMatricula) {
+        this.numMatricula = numMatricula;
     }
 
     @Override
     public String toString() {
-        return "examen.backend.model.Odontologo{" +
-                "numMatricula=" + numMatricula +
+        return "ODO{" +
+                "ID=" + ID +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", ID=" + ID +
+                ", numMatricula=" + numMatricula +
                 '}';
     }
 }

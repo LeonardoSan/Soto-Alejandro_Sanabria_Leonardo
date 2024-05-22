@@ -1,4 +1,5 @@
 package examen.backend.dao.impl;
+import examen.backend.dao.IDao;
 import examen.backend.model.Odontologo;
 import org.apache.log4j.Logger;
 
@@ -11,7 +12,7 @@ public class OdontoloEnMemoria implements IDao<Odontologo> {
     @Override
     public Odontologo registrar(Odontologo odontologo) {
         Integer id = odontologos.size()+1;
-        odontologo.setId(id);
+        odontologo.setID(id);
 
         odontologos.add(odontologo);
         LOGGER.info("odontologo guardado: "+ odontologo);
@@ -21,7 +22,7 @@ public class OdontoloEnMemoria implements IDao<Odontologo> {
     @Override
     public Odontologo buscarPorId(Integer id) {
         for(Odontologo odontologo: odontologos){
-            if(odontologo.getId().equals(id)){
+            if(odontologo.getID().equals(id)){
                 LOGGER.info("Odontologo encontrado: "+ odontologo);
                 return odontologo;
             }
@@ -34,5 +35,4 @@ public class OdontoloEnMemoria implements IDao<Odontologo> {
     public List<Odontologo> buscarTodos() {
         return odontologos;
     }
-}
 }

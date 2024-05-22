@@ -2,11 +2,12 @@ package examen.backend.dao.impl;
 
 import examen.backend.dao.IDao;
 import examen.backend.db.H2Connection;
-import examen.backend.model.Odontologo;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import examen.backend.model.Odontologo;
 import org.apache.log4j.Logger;
 
 public class OdontologoDaoH2 implements IDao<Odontologo> {
@@ -61,7 +62,12 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
     }
 
     @Override
-    public List<Odontologo> listarOdontologos() {
+    public Odontologo buscarPorId(Integer id) {
+        return null;
+    }
+
+    @Override
+    public List<Odontologo> buscarTodos() {
         List<Odontologo> odontologos = new ArrayList<>();
         Connection connection = null;
         try{
