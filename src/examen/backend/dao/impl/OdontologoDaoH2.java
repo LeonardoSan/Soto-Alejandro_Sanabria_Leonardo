@@ -12,11 +12,11 @@ import org.apache.log4j.Logger;
 public class OdontologoDaoH2 implements IDao<Odontologo> {
     private static Logger LOGGER = Logger.getLogger(OdontologoDaoH2.class);
     private static String SQL_INSERT = "INSERT INTO ODONTOLOGO VALUES (DEFAULT,?,?,?)";
-    private static String SQL_SELECT_ALL = "SELECT * FROM PACIENTES";
+    private static String SQL_SELECT_ALL = "SELECT * FROM ODONTOLOGO";
     @Override
     public Odontologo registrar(Odontologo odontologo) {
         Connection connection = null;
-        OdontologoDaoH2 odontologoDaoH2 = new OdontologoDaoH2(); // <-- Llamamos a domicilioDaoH2 para poder guardar el domicilio
+        OdontologoDaoH2 odontologoDaoH2 = new OdontologoDaoH2(); //
         Odontologo odontologoARetornar = null;
         try{
             connection = H2Connection.getConnection();
@@ -62,7 +62,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     @Override
     public List<Odontologo> listarOdontologos() {
-        List<Odontologo> odontologos = new ArrayList<>(); // <-- Creamos una lista donde vamos a guardar todos los pacientes encontrados
+        List<Odontologo> odontologos = new ArrayList<>();
         Connection connection = null;
         try{
             connection = H2Connection.getConnection();
